@@ -1,0 +1,108 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "huashumotion",
+    "nameCn": "huashu-motion",
+    "repoName": "huashu-motion-deploy-guide",
+    "oneLiner": "说一句产品是什么，agent 自己写分镜、做动画、作曲，还能指着画面改",
+    "officialRepo": "https://github.com/alchaincyf/huashu-motion",
+    "officialDocs": "https://github.com/alchaincyf/huashu-motion#安装",
+    "stars": "2040",
+    "license": "MIT",
+    "highlights": [
+      "一句话出片：从产品信息到 30 秒发布片",
+      "指着画面改：按帧提意见，不必重写提示词",
+      "现场作曲：按节奏单生成配乐与音效",
+      "多格式导出：MP4、透明 MOV、WebM、GIF",
+      "透明叠层：可直接拖进剪映或 Premiere",
+      "MIT，技能与脚本都可改"
+    ],
+    "mcpSupport": "以 Agent Skill 形式接入 Claude Code、Codex 等客户端，本身不含 MCP；本仓库的 MCP 只提供安装步骤、依赖与常见问题。",
+    "webuiUrl": "",
+    "adapterPorts": "",
+    "collectedAt": "2026-11-02",
+    "verification": [
+      [
+        "README 确认 Node 22+、Chrome 与 FFmpeg 依赖",
+        "已核对 2026-11-02"
+      ],
+      [
+        "确认导出格式、片尾水印与本地作曲方式",
+        "已核对 2026-11-02"
+      ],
+      [
+        "未实测安装与出片",
+        "说明 2026-11-02"
+      ],
+      [
+        "MCP 冒烟：initialize / tools/list 返回 get_guide、search_guide、get_project_info",
+        "已验证 2026-11-02"
+      ],
+      [
+        "非目标宿主调用 get_guide 被拦截（HOST_NOT_ALLOWED）",
+        "已验证 2026-11-02"
+      ]
+    ],
+    "deploy": {
+      "type": "script",
+      "requires": [
+        "node"
+      ],
+      "steps": [
+        "npx skills add alchaincyf/huashu-motion",
+        "echo \"装好后对 agent 说：用 huashu-motion 给我的产品做一支 30 秒发布片\""
+      ],
+      "stepsPs": [
+        "npx skills add alchaincyf/huashu-motion",
+        "Write-Host \"装好后对 agent 说：用 huashu-motion 给我的产品做一支 30 秒发布片\""
+      ],
+      "source": "https://github.com/alchaincyf/huashu-motion#安装"
+    },
+    "pitfalls": [
+      "技能找不到：确认装到了当前 agent 客户端并重开会话",
+      "渲染失败：检查 Chrome 是否在默认路径、能否被无头启动",
+      "导出没有声音：先确认 FFmpeg 在 PATH，配乐是否生成成功",
+      "渲染很慢：减少并行浏览器数，或先做短片",
+      "字体不对：系统缺少片中字体，换字体或让 agent 用本机字体",
+      "想关片尾：直接告诉 agent 去掉 Made with 水印",
+      "素材来源不明：发布前确认图片、音乐与字体的授权"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/huashu-motion-deploy-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/huashu-motion-deploy-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "huashu-motion",
+    "huashu-motion 安装",
+    "AI 做宣传片",
+    "产品发布片 生成",
+    "agent 做视频",
+    "AI 分镜 动画",
+    "本地 渲染 视频",
+    "huashu motion 教程",
+    "透明 MOV 导出",
+    "huashu-motion deploy guide"
+  ],
+  "topics": [
+    "agent-skills",
+    "video-generation",
+    "motion-design",
+    "ffmpeg",
+    "ai-tools",
+    "huashu-motion"
+  ]
+}
